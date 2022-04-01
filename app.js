@@ -26,7 +26,7 @@ mongoose.connect('mongodb://localhost:27017/bitfilmsdb', {
 });
 
 app.use(cors({
-  origin: 'https://cyberfalcon.mesto.nomoredomains.work',
+  origin: 'https://cyberfalcon.movies.nomoredomains.work',
   credentials: true,
 }));
 
