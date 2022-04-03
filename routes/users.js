@@ -8,9 +8,9 @@ const {
   getUserInfo,
 } = require('../controllers/users');
 
-routes.get('/me', getUserInfo);
+routes.get('users/me', getUserInfo);
 
-routes.patch('/me', celebrate({
+routes.patch('users/me', celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
     email: Joi.string().required().email(),
