@@ -10,7 +10,7 @@ const centralizedErrorHandler = require('./middlewares/centralizedErrorHandler')
 
 const app = express();
 
-const { PORT = 3000, NODE_ENV, DATABASE_URL } = process.env;
+const { PORT = 3001, NODE_ENV, DATABASE_URL } = process.env;
 
 mongoose.connect(NODE_ENV === 'production' ? DATABASE_URL : 'mongodb://localhost:27017/moviesdb', {
   useNewUrlParser: true,
@@ -18,7 +18,7 @@ mongoose.connect(NODE_ENV === 'production' ? DATABASE_URL : 'mongodb://localhost
 });
 
 app.use(cors({
-  origin: 'https://cyberfalcon.movies.nomoredomains.work',
+  origin: 'https://cyberfalcon.movies.nomoredomains.work/movies',
   credentials: true,
 }));
 
