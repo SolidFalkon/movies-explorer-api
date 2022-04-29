@@ -18,7 +18,7 @@ mongoose.connect(NODE_ENV === 'production' ? DATABASE_URL : 'mongodb://localhost
 });
 
 app.use(cors({
-  origin: 'https://cyberfalcon.movies.nomoredomains.work',
+  origin: 'http://localhost:3000',
   credentials: true,
 }));
 
