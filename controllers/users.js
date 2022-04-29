@@ -52,14 +52,13 @@ module.exports.createUser = (req, res, next) => {
       password: hash,
     }))
     .then((user) => {
-      const {
-        name, email,
-      } = user;
-      res.status(200).send({
-        data: {
-          name, email,
-        },
-      });
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
+      res.cookie('jwt', token, { maxAge: 36000000, httpOnly: true, sameSite: false })
+        .send({
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+        });
     })
     .catch((err) => {
       if (err.code === 11000) {
